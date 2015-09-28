@@ -1,8 +1,9 @@
-class CalaisError < StandardError
-  attr_reader :object
-
-  def initialize(object)
-    @object = object
+module Errors
+  class RaiseError < Faraday::Response::Middleware
+ 
+    def on_complete(env)
+      raise Errors::NotFound if env[:status] == 404
+    end
+ 
   end
-
 end
