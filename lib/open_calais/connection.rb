@@ -48,7 +48,7 @@ module OpenCalais
         else
           connection.response :xml
         end
-
+        connection.use Errors::RaiseError
         connection.adapter(adapter)
       end
 
