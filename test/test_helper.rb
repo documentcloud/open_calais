@@ -10,5 +10,6 @@ end
 
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'byebug'
 
 require 'open_calais'
