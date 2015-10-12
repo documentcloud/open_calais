@@ -11,6 +11,12 @@ module Errors
       case env[:status]
       when 429
         raise Errors::RateLimitExceeded 
+      when 415
+        raise Errors::BadMedia
+      when 413
+        raise Errors::LargeEntity
+      when 406
+        raise Errors::InvalidFormat
       when 404
         raise Errors::ResourceNotFound
       when 401
