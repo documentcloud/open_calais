@@ -3,6 +3,7 @@
 require 'open_calais/configuration'
 require 'open_calais/connection'
 require 'open_calais/response'
+require 'errors/raise_error'
 
 module OpenCalais
   class Client
