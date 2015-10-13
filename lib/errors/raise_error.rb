@@ -9,6 +9,10 @@ module Errors
  
     def on_complete(env)
       case env[:status]
+      when 503
+        raise Errors::ServiceUnavailable
+      when 500
+        raise Errors::ServerError
       when 429
         raise Errors::RateLimitExceeded 
       when 415
