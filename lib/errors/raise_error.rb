@@ -1,8 +1,5 @@
-require "errors/rate_limit_exceeded"
-require "errors/denied_error"
-require "errors/auth_error"
-require "errors/bad_content"
-require "errors/resource_not_found"
+#Dir["errors/*.rb"].each {|file| require file }
+Dir[File.dirname(__FILE__) + '/*.rb'].each {|file| require file }
 
 module Errors
   class RaiseError < Faraday::Response::Middleware

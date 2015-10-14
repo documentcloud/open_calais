@@ -2,6 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
 describe OpenCalais::Client do
 
+  before :each do
+    sleep(1)
+  end
+
   it "is initialized with defaults" do
     oc = OpenCalais::Client.new
     oc.current_options.wont_be_nil

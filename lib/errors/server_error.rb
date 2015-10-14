@@ -1,4 +1,4 @@
 module Errors
-  class Server < StandardError
+  class ServerError < StandardError
   end
 end
