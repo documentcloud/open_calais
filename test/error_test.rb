@@ -14,49 +14,49 @@ describe OpenCalais::Client do
   it "should throw a ServiceUnavailable error" do
     WebMock.enable!
     mock_call(:status => 503)
-    -> { @oc.enrich("Test") }.must_raise Errors::ServiceUnavailable
+    -> { @oc.enrich("Test") }.must_raise CalaisError::ServiceUnavailable
   end
 
   it "should throw a ServerError error" do
     WebMock.enable!
     mock_call(:status => 500)
-    -> { @oc.enrich("Test") }.must_raise Errors::ServerError
+    -> { @oc.enrich("Test") }.must_raise CalaisError::ServerError
   end
 
   it "should throw a RateLimitExceeded error" do
     WebMock.enable!
     mock_call(:status => 429)
-    -> { @oc.enrich("Test") }.must_raise Errors::RateLimitExceeded
+    -> { @oc.enrich("Test") }.must_raise CalaisError::RateLimitExceeded
   end
 
   it "should throw a BadMedia error" do
     WebMock.enable!
     mock_call(:status => 415)
-    -> { @oc.enrich("Test") }.must_raise Errors::BadMedia
+    -> { @oc.enrich("Test") }.must_raise CalaisError::BadMedia
   end
 
   it "should throw a InvalidFormat error" do
     WebMock.enable!
     mock_call(:status => 406)
-    -> { @oc.enrich("Test") }.must_raise Errors::InvalidFormat
+    -> { @oc.enrich("Test") }.must_raise CalaisError::InvalidFormat
   end
 
   it "should throw a ResourceNotFound error" do
     WebMock.enable!
     mock_call(:status => 404)
-    -> { @oc.enrich("Test") }.must_raise Errors::ResourceNotFound
+    -> { @oc.enrich("Test") }.must_raise CalaisError::ResourceNotFound
   end
 
   it "should throw a AuthError error" do
     WebMock.enable!
     mock_call(:status => 401)
-    -> { @oc.enrich("Test") }.must_raise Errors::AuthError
+    -> { @oc.enrich("Test") }.must_raise CalaisError::AuthError
   end
 
   it "should throw a BadContent error" do
     WebMock.enable!
     mock_call(:status => 400)
-    -> { @oc.enrich("Test") }.must_raise Errors::BadContent
+    -> { @oc.enrich("Test") }.must_raise CalaisError::BadContent
   end
 end
 
