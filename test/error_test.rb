@@ -8,7 +8,7 @@ describe OpenCalais::Client do
 
   it "should throw a AuthError for bad api key." do
     WebMock.disable!
-    -> { @oc.enrich("Ruby on Rails is a fantastic web framework. It uses MVC, and the ruby programming language invented by Matz") }.must_raise Errors::AuthError
+    -> { @oc.enrich("Ruby on Rails is a fantastic web framework. It uses MVC, and the ruby programming language invented by Matz") }.must_raise OpenCalais::Errors::AuthError
   end
 
   it "should throw a ServiceUnavailable error" do
