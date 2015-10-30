@@ -14,49 +14,49 @@ describe OpenCalais::Client do
   it "should throw a ServiceUnavailable error" do
     WebMock.enable!
     mock_call(:status => 503)
-    -> { @oc.enrich("Test") }.must_raise CalaisError::ServiceUnavailable
+    -> { @oc.enrich("Test") }.must_raise OpenCalais::Errors::ServiceUnavailable
   end
 
   it "should throw a ServerError error" do
     WebMock.enable!
     mock_call(:status => 500)
-    -> { @oc.enrich("Test") }.must_raise CalaisError::ServerError
+    -> { @oc.enrich("Test") }.must_raise OpenCalais::Errors::ServerError
   end
 
   it "should throw a RateLimitExceeded error" do
     WebMock.enable!
     mock_call(:status => 429)
-    -> { @oc.enrich("Test") }.must_raise CalaisError::RateLimitExceeded
+    -> { @oc.enrich("Test") }.must_raise OpenCalais::Errors::RateLimitExceeded
   end
 
   it "should throw a BadMedia error" do
     WebMock.enable!
     mock_call(:status => 415)
-    -> { @oc.enrich("Test") }.must_raise CalaisError::BadMedia
+    -> { @oc.enrich("Test") }.must_raise OpenCalais::Errors::BadMedia
   end
 
   it "should throw a InvalidFormat error" do
     WebMock.enable!
     mock_call(:status => 406)
-    -> { @oc.enrich("Test") }.must_raise CalaisError::InvalidFormat
+    -> { @oc.enrich("Test") }.must_raise OpenCalais::Errors::InvalidFormat
   end
 
   it "should throw a ResourceNotFound error" do
     WebMock.enable!
     mock_call(:status => 404)
-    -> { @oc.enrich("Test") }.must_raise CalaisError::ResourceNotFound
+    -> { @oc.enrich("Test") }.must_raise OpenCalais::Errors::ResourceNotFound
   end
 
   it "should throw a AuthError error" do
     WebMock.enable!
     mock_call(:status => 401)
-    -> { @oc.enrich("Test") }.must_raise CalaisError::AuthError
+    -> { @oc.enrich("Test") }.must_raise OpenCalais::Errors::AuthError
   end
 
   it "should throw a BadContent error" do
     WebMock.enable!
     mock_call(:status => 400)
-    -> { @oc.enrich("Test") }.must_raise CalaisError::BadContent
+    -> { @oc.enrich("Test") }.must_raise OpenCalais::Errors::BadContent
   end
 end
 
