@@ -10,7 +10,7 @@ module OpenCalais
 
     include Connection
 
-    attr_reader *OpenCalais::Configuration.keys
+    attr_reader(*OpenCalais::Configuration.keys)
 
     attr_accessor :current_options
 
