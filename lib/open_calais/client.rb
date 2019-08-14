@@ -3,13 +3,14 @@
 require 'open_calais/configuration'
 require 'open_calais/connection'
 require 'open_calais/response'
+require 'open_calais/errors'
 
 module OpenCalais
   class Client
 
     include Connection
 
-    attr_reader *OpenCalais::Configuration.keys
+    attr_reader(*OpenCalais::Configuration.keys)
 
     attr_accessor :current_options
 

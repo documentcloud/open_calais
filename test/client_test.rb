@@ -2,6 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper')
 
 describe OpenCalais::Client do
 
+  before :each do
+    sleep(1)
+  end
+
   it "is initialized with defaults" do
     oc = OpenCalais::Client.new
     oc.current_options.wont_be_nil
@@ -30,7 +34,7 @@ describe OpenCalais::Client do
     response.raw.wont_be_nil
   end
 
-  it "passes in header optionsin enrich" do
+  it "passes in header options in enrich" do
     oc = OpenCalais::Client.new(:api_key => ENV['OPEN_CALAIS_KEY'])
     response = oc.enrich("Ruby on Rails is a fantastic web framework. It uses MVC, and the ruby programming language invented by Matz", :headers => {:content_type => OpenCalais::CONTENT_TYPES[:html]})
     response.wont_be_nil

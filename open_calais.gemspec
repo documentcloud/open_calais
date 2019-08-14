@@ -19,6 +19,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_runtime_dependency('faraday')
+  gem.add_runtime_dependency('webmock')
   gem.add_runtime_dependency('faraday_middleware')
   gem.add_runtime_dependency('multi_json')
   gem.add_runtime_dependency('multi_xml')
@@ -30,4 +31,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('minitest')
   gem.add_development_dependency('simplecov')
   gem.add_development_dependency('coveralls')
+  gem.add_development_dependency('byebug')
 end
